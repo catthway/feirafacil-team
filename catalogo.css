@@ -8,72 +8,129 @@ body, html {
 
 /* Fundo desfocado */
 .fundo {
-  background-image: url('imagens/fundo.jpg'); /* Caminho atualizado */
+  background-image: url('imagens/fundo.jpg'); /* Confirme que a imagem está na pasta correta */
   background-size: cover;
   background-position: center;
   filter: blur(8px);
   width: 100%;
   height: 100%;
-  position: absolute;
-  z-index: 1;
+  position: fixed;
+  z-index: 0;
 }
 
-/* Área do conteúdo sobreposta ao fundo */
+/* Container central */
 .conteudo-central {
-  position: absolute;
+  position: relative;
   z-index: 2;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 40px;
+  padding: 30px;
+  background-color: rgba(255, 255, 255, 0.95);
+  margin: 50px auto;
+  width: 90%;
+  max-width: 1200px;
   border-radius: 15px;
-  text-align: center;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Aplicação do plano de fundo no corpo da página */
+body {
+  background-image: url('imagens/fundo.jpg'); /* Novo plano de fundo */
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 /* Título */
 .titulo {
   text-align: center;
-  margin-top: 20px;
+  margin-bottom: 30px;
   color: #2e7d32;
 }
 
+/* Layout do catálogo */
 .catalogo-container {
   display: flex;
-  justify-content: space-between;
-  padding: 20px;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-/* Layout de produtos e carrinho */
+/* Seção de produtos */
 .produtos {
-  width: 60%;
+  flex: 2;
+  padding-right: 20px;
 }
 
+/* Seção do carrinho */
 .carrinho {
-  width: 35%;
-  background-color: #f1f1f1;
-  padding: 20px;
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 15px;
   border-radius: 10px;
 }
 
-/* Estilização dos itens */
+/* Estilo dos itens */
 .item {
-  background: white;
+  background-color: white;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
   padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 8px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-/* Botões de interação */
+/* Imagens dos produtos */
+.item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Botão de adicionar ao carrinho */
 .item button {
-  margin-top: 5px;
   background-color: #2e7d32;
   color: white;
   border: none;
-  padding: 6px 12px;
+  padding: 8px 12px;
   border-radius: 5px;
   cursor: pointer;
+  transition: 0.3s;
+}
+
+.item button:hover {
+  background-color: #1b5e20;
+}
+
+/* Botão de remover item do carrinho */
+.remove-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.remove-btn:hover {
+  background-color: #b71c1c;
+}
+
+/* Botão de voltar */
+.voltar {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 3;
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.voltar:hover {
+  background-color: #1b5e20;
 }
