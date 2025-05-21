@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo - Feira Fácil</title>
   <link rel="stylesheet" href="catalogo.css" />
   <script defer src="catalogo.js"></script>
@@ -19,150 +19,71 @@
       <div class="produtos">
         <h2>🫙 Produtos Artesanais</h2>
         <div class="item">
-          <img src="img/geleia.jpg" alt="Geleia Caseira" />
+          <img src="imagens/geleia.jpg" alt="Geleia Caseira">
           <p>Geleia Caseira - R$10</p>
           <button onclick="adicionar('Geleia Caseira', 10)">Adicionar</button>
         </div>
         <div class="item">
-          <img src="img/mel.jpg" alt="Mel Puro" />
+          <img src="imagens/mel.jpg" alt="Mel Puro">
           <p>Mel Puro - R$25</p>
           <button onclick="adicionar('Mel Puro', 25)">Adicionar</button>
         </div>
         <div class="item">
-          <img src="img/sabonete.jpg" alt="Sabonete Natural" />
+          <img src="imagens/sabonete.jpg" alt="Sabonete Natural">
           <p>Sabonete Natural - R$7</p>
           <button onclick="adicionar('Sabonete Natural', 7)">Adicionar</button>
         </div>
 
         <h2>🍎 Hortifruti</h2>
         <div class="item">
-          <img src="img/banana.jpg" alt="Banana" />
+          <img src="imagens/banana.jpg" alt="Banana Prata">
           <p>Banana Prata (kg) - R$6,39</p>
-          <button onclick="adicionar('Banana (kg)', 6.39)">Adicionar</button>
+          <button onclick="adicionar('Banana Prata (kg)', 6.39)">Adicionar</button>
         </div>
         <div class="item">
-          <img src="img/maca.jpg" alt="Maçã" />
+          <img src="imagens/maca.jpg" alt="Maçã Fuji">
           <p>Maçã Fuji (kg) - R$8,50</p>
-          <button onclick="adicionar('Maçã (kg)', 8.5)">Adicionar</button>
+          <button onclick="adicionar('Maçã Fuji (kg)', 8.5)">Adicionar</button>
         </div>
 
         <h2>🥬 Hortaliças</h2>
         <div class="item">
-          <img src="img/alface.jpg" alt="Alface Crespa" />
+          <img src="imagens/alface.jpg" alt="Alface Crespa">
           <p>Alface Crespa - R$4,99</p>
           <button onclick="adicionar('Alface Crespa', 4.99)">Adicionar</button>
         </div>
         <div class="item">
-          <img src="img/cenoura.jpg" alt="Cenoura" />
+          <img src="imagens/cenoura.jpg" alt="Cenoura Vermelha">
           <p>Cenoura Vermelha (kg) - R$3,00</p>
-          <button onclick="adicionar('Cenoura (kg)', 3)">Adicionar</button>
+          <button onclick="adicionar('Cenoura Vermelha (kg)', 3)">Adicionar</button>
         </div>
       </div>
-<div class="carrinho">
-  <h2>Carrinho</h2>
-  <ul id="lista-carrinho"></ul>
-  <p><strong>Total: R$<span id="total">0.00</span></strong></p>
 
-  <label for="forma-pagamento">Forma de pagamento:</label>
-  <select id="forma-pagamento" required>
-    <option value="">Selecione</option>
-    <option value="pix">PIX</option>
-    <option value="dinheiro">Dinheiro</option>
-    <option value="cartao">Cartão</option>
-  </select>
+      <div class="carrinho">
+        <h2>Carrinho</h2>
+        <ul id="lista-carrinho"></ul>
+        <p><strong>Total: R$<span id="total">0.00</span></strong></p>
 
-  <div id="comprovante-container" style="display:none; margin-top: 10px;">
-    <label for="link-comprovante">Link do comprovante PIX:</label>
-    <input type="url" id="link-comprovante" placeholder="Cole o link do comprovante aqui" />
-  </div>
+        <label for="forma-pagamento">Forma de pagamento:</label>
+        <select id="forma-pagamento">
+            <option value="">Selecione</option>
+            <option value="dinheiro">Dinheiro</option>
+            <option value="pix">Pix</option>
+        </select>
 
-  <button onclick="finalizarCompra()">Finalizar compra</button>
-</div>
+        <div id="chave-pix-container" style="display: none;">
+            <p><strong>Chave Pix para pagamento:</strong></p>
+            <p id="chave-pix">000.000.000-00</p>
+        </div>
+
+        <div id="comprovante-container" style="display: none;">
+            <label for="link-comprovante">Link do comprovante Pix:</label>
+            <input type="text" id="link-comprovante" placeholder="Cole o link do comprovante aqui">
+        </div>
+
+        <button onclick="finalizarCompra()">Finalizar compra</button>
       </div>
     </div>
   </div>
-
-  <script>
-    let carrinho = [];
-    let total = 0;
-
-    window.adicionar = function (nome, preco) {
-      carrinho.push({ nome, preco });
-      total += preco;
-      atualizarCarrinho();
-    };
-
-    function atualizarCarrinho() {
-      const lista = document.getElementById("lista-carrinho");
-      const totalEl = document.getElementById("total");
-      lista.innerHTML = "";
-
-      carrinho.forEach((item, index) => {
-        const li = document.createElement("li");
-        li.innerHTML = `${item.nome} - R$${item.preco.toFixed(2)} 
-          <button class="remove-btn" onclick="remover(${index})">❌</button>`;
-        lista.appendChild(li);
-      });
-
-      totalEl.textContent = total.toFixed(2);
-    }
-
-    window.remover = function (index) {
-      total -= carrinho[index].preco;
-      carrinho.splice(index, 1);
-      atualizarCarrinho();
-    };
-
-    // Mostra ou oculta campo do comprovante Pix
-    document.getElementById("forma-pagamento").addEventListener("change", function () {
-      const comprovanteContainer = document.getElementById("comprovante-container");
-      if (this.value === "pix") {
-        comprovanteContainer.style.display = "block";
-        document.getElementById("link-comprovante").required = true;
-      } else {
-        comprovanteContainer.style.display = "none";
-        document.getElementById("link-comprovante").required = false;
-      }
-    });
-
-    function finalizarCompra() {
-      if (carrinho.length === 0) {
-        alert("Carrinho vazio!");
-        return;
-      }
-
-      const formaPagamento = document.getElementById("forma-pagamento").value;
-      if (!formaPagamento) {
-        alert("Por favor, selecione a forma de pagamento.");
-        return;
-      }
-
-      const comprovante = document.getElementById("link-comprovante").value.trim();
-
-      let mensagem = "Olá Dona Lourdes! Gostaria de fazer um pedido:%0A";
-
-      carrinho.forEach(item => {
-        mensagem += - ${item.nome} (R$${item.preco.toFixed(2)})%0A;
-      });
-
-      mensagem += %0ATotal: R$${total.toFixed(2)}%0A;
-      mensagem += Forma de pagamento: ${formaPagamento.toUpperCase()}%0A;
-
-      if (formaPagamento === "pix") {
-        if (!comprovante) {
-          alert("Por favor, cole o link do comprovante Pix.");
-          return;
-        }
-        mensagem += Comprovante Pix: ${comprovante}%0A;
-        mensagem += Pagamento já realizado! Obrigada.%0A;
-      } else {
-        mensagem += "Pagamento será efetuado na entrega ou na retirada.%0A";
-      }
-
-      const numero = "5542999696273";
-      const url = https://wa.me/${numero}?text=${mensagem};
-      window.open(url, "_blank");
-    }
-  </script>
 </body>
 </html>
