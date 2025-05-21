@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Catálogo - Feira Fácil</title>
- <link rel="stylesheet" href="catalogo.css" />
-<script src="catalogo.js"></script>
+  <link rel="stylesheet" href="catalogo.css" />
+  <script defer src="catalogo.js"></script> <!-- Correção aqui -->
 </head>
 <body>
   <div class="fundo"></div>
@@ -33,30 +33,6 @@
           <p>Sabonete Natural - R$7</p>
           <button onclick="adicionar('Sabonete Natural', 7)">Adicionar</button>
         </div>
-
-        <h2>Hortifruti</h2>
-        <div class="item">
-          <img src="imagens/banana.jpg" alt="Banana Prata">
-          <p>Banana Prata (kg) - R$6,39</p>
-          <button onclick="adicionar('Banana Prata (kg)', 6.39)">Adicionar</button>
-        </div>
-        <div class="item">
-          <img src="imagens/maca.jpg" alt="Maçã Fuji">
-          <p>Maçã Fuji (kg) - R$8,50</p>
-          <button onclick="adicionar('Maçã Fuji (kg)', 8.5)">Adicionar</button>
-        </div>
-
-        <h2>Hortaliças</h2>
-        <div class="item">
-          <img src="imagens/alface.jpg" alt="Alface Crespa">
-          <p>Alface Crespa - R$4,99</p>
-          <button onclick="adicionar('Alface Crespa', 4.99)">Adicionar</button>
-        </div>
-        <div class="item">
-          <img src="imagens/cenoura.jpg" alt="Cenoura Vermelha">
-          <p>Cenoura Vermelha (kg) - R$3,00</p>
-          <button onclick="adicionar('Cenoura Vermelha (kg)', 3)">Adicionar</button>
-        </div>
       </div>
 
       <div class="carrinho">
@@ -67,7 +43,5 @@
       </div>
     </div>
   </div>
-
-  <script src="catalogo.js"></script>
 </body>
 </html>
