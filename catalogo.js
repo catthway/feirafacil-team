@@ -45,24 +45,24 @@ window.finalizarCompra = function() {
   let mensagem = "Olá Dona Lourdes! Gostaria de fazer um pedido:%0A";
 
   carrinho.forEach(item => {
-    mensagem += - ${item.nome} (R$${item.preco.toFixed(2)})%0A;
+    mensagem += `- ${item.nome} (R$${item.preco.toFixed(2)})%0A`;
   });
 
-  mensagem += %0ATotal: R$${total.toFixed(2)}%0A;
-  mensagem += Forma de pagamento: ${formaPagamento.toUpperCase()}%0A;
+  mensagem += `%0ATotal: R$${total.toFixed(2)}%0A`;
+  mensagem += `Forma de pagamento: ${formaPagamento.toUpperCase()}%0A`;
 
   if (formaPagamento === "pix") {
     if (!comprovante) {
       alert("Por favor, cole o link do comprovante Pix.");
       return;
     }
-    mensagem += Comprovante Pix: ${comprovante}%0A;
-    mensagem += Pagamento já realizado. Obrigada!%0A;
+    mensagem += `Comprovante Pix: ${comprovante}%0A`;
+    mensagem += `Pagamento já realizado. Obrigada!%0A`;
   } else {
-    mensagem += Pagamento será efetuado na entrega ou retirada.%0A;
+    mensagem += `Pagamento será efetuado na entrega ou retirada.%0A`;
   }
 
-  const link = https://wa.me/5542999696273?text=${mensagem};
+  const link = `https://wa.me/5542999696273?text=${mensagem}`;
   window.open(link, "_blank");
 };
 
