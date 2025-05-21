@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feira Fácil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="tela-inicial" id="inicio">
+    <div class="overlay">
+      <h1>Feira Fácil</h1>
+      <button class="catalogo-btn" onclick="abrirCatalogo()">Acesse nosso catálogo</button>
+    </div>
+  </div>
 
+  <div class="pagina-catalogo" id="catalogo" style="display:none;">
+    <div class="categoria">
+      <h2>Frutas</h2>
+      <div class="produto">
+        <img src="img/maca.jpg" alt="Maçã">
+        <div class="produto-info">
+          <p>Maçã - R$2,00</p>
+          <button onclick="adicionarAoCarrinho('Maçã', 2.00)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+    <div class="categoria">
+      <h2>Verduras</h2>
+      <div class="produto">
+        <img src="img/alface.jpg" alt="Alface">
+        <div class="produto-info">
+          <p>Alface - R$1,50</p>
+          <button onclick="adicionarAoCarrinho('Alface', 1.50)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+    <div class="categoria">
+      <h2>Produtos Artesanais</h2>
+      <div class="produto">
+        <img src="img/geleia.jpg" alt="Geleia">
+        <div class="produto-info">
+          <p>Geleia Caseira - R$10,00</p>
+          <button onclick="adicionarAoCarrinho('Geleia Caseira', 10.00)">Adicionar</button>
+        </div>
+      </div>
+      <div class="produto">
+        <img src="img/mel.jpg" alt="Mel">
+        <div class="produto-info">
+          <p>Mel Artesanal - R$15,00</p>
+          <button onclick="adicionarAoCarrinho('Mel Artesanal', 15.00)">Adicionar</button>
+        </div>
+      </div>
+      <div class="produto">
+        <img src="img/sabonete.jpg" alt="Sabonete">
+        <div class="produto-info">
+          <p>Sabonete Natural - R$7,00</p>
+          <button onclick="adicionarAoCarrinho('Sabonete Natural', 7.00)">Adicionar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="carrinho" id="carrinho">
+    <h2>Carrinho</h2>
+    <div id="itens-carrinho"></div>
+    <p>Total: R$ <span id="total">0.00</span></p>
+    <button class="finalizar-btn" onclick="finalizarCompra()">Finalizar Compra</button>
+    <div class="formas-pagamento" id="formas-pagamento">
+      <p>Escolha a forma de pagamento:</p>
+      <button onclick="enviarWhatsapp()">Pagar no WhatsApp</button>
+      <p>Ou por PIX:</p>
+      <img src="img/qrcode-pix.png" alt="QR Code Pix">
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
