@@ -2,99 +2,60 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Feira Fácil - Catálogo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo - Feira Fácil</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="overlay"></div>
-  <main class="center-box catalogo-box">
-    <h1>Catálogo de Produtos</h1>
+  <h1 class="titulo">Catálogo de Produtos</h1>
 
-    <section class="categoria">
+  <div class="catalogo-container">
+
+    <div class="produtos">
       <h2>Produtos Artesanais</h2>
-      <div class="produtos">
-        <div class="produto">
-          <img src="imagens/geleia.jpg" alt="Geleia Caseira" />
-          <div>
-            <h3>Geleia caseira (250g)</h3>
-            <p>R$ 10,00</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="imagens/mel.jpg" alt="Mel Puro" />
-          <div>
-            <h3>Mel puro (500g)</h3>
-            <p>R$ 25,00</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="imagens/sabonete.jpg" alt="Sabonete Natural" />
-          <div>
-            <h3>Sabonete natural (unidade)</h3>
-            <p>R$ 7,00</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
+      <div class="item">
+        <p>Geleia Caseira - R$10</p>
+        <button onclick="adicionar('Geleia Caseira', 10)">Adicionar</button>
       </div>
-    </section>
+      <div class="item">
+        <p>Mel Puro - R$25</p>
+        <button onclick="adicionar('Mel Puro', 25)">Adicionar</button>
+      </div>
+      <div class="item">
+        <p>Sabonete Natural - R$7</p>
+        <button onclick="adicionar('Sabonete Natural', 7)">Adicionar</button>
+      </div>
 
-    <section class="categoria">
       <h2>Hortifruti</h2>
-      <div class="produtos">
-        <div class="produto">
-          <img src="imagens/banana.jpg" alt="Banana Prata" />
-          <div>
-            <h3>Banana prata (kg)</h3>
-            <p>R$ 6,39</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="imagens/maca.jpg" alt="Maçã Fuji" />
-          <div>
-            <h3>Maçã Fuji (kg)</h3>
-            <p>R$ 8,50</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <!-- Adicione mais produtos aqui -->
+      <div class="item">
+        <p>Banana Prata (kg) - R$6,39</p>
+        <button onclick="adicionar('Banana Prata (kg)', 6.39)">Adicionar</button>
       </div>
-    </section>
+      <div class="item">
+        <p>Maçã Fuji (kg) - R$8,50</p>
+        <button onclick="adicionar('Maçã Fuji (kg)', 8.5)">Adicionar</button>
+      </div>
 
-    <section class="categoria">
       <h2>Hortaliças</h2>
-      <div class="produtos">
-        <div class="produto">
-          <img src="imagens/alface.jpg" alt="Alface Crespa" />
-          <div>
-            <h3>Alface crespa (unidade)</h3>
-            <p>R$ 4,99</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <div class="produto">
-          <img src="imagens/tomate.jpg" alt="Tomate Italiano" />
-          <div>
-            <h3>Tomate italiano (kg)</h3>
-            <p>R$ 4,00</p>
-            <button class="btn-add">Adicionar ao carrinho</button>
-          </div>
-        </div>
-        <!-- Mais produtos -->
+      <div class="item">
+        <p>Alface Crespa - R$4,99</p>
+        <button onclick="adicionar('Alface Crespa', 4.99)">Adicionar</button>
       </div>
-    </section>
+      <div class="item">
+        <p>Cenoura Vermelha (kg) - R$3,00</p>
+        <button onclick="adicionar('Cenoura Vermelha (kg)', 3)">Adicionar</button>
+      </div>
+    </div>
 
-    <section class="carrinho">
+    <div class="carrinho">
       <h2>Carrinho</h2>
       <ul id="lista-carrinho"></ul>
-      <p id="total">Total: R$ 0,00</p>
-      <button id="finalizar-compra" class="btn">Finalizar Compra</button>
-    </section>
-  </main>
+      <p><strong>Total: R$<span id="total">0.00</span></strong></p>
+      <button onclick="finalizarCompra()">Finalizar compra</button>
+    </div>
 
-  <script src="catalogo.js"></script>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
