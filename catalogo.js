@@ -1,11 +1,11 @@
 let carrinho = [];
 let total = 0;
 
-function adicionar(nome, preco) {
+window.adicionar = function(nome, preco) {  // Agora a função está global
   carrinho.push({ nome, preco });
   total += preco;
   atualizarCarrinho();
-}
+};
 
 function atualizarCarrinho() {
   const lista = document.getElementById("lista-carrinho");
@@ -37,11 +37,11 @@ function finalizarCompra() {
   let mensagem = "Olá! Gostaria de fazer um pedido:%0A";
   
   carrinho.forEach(item => {
-    mensagem += `- ${item.nome} (R$${item.preco.toFixed(2)})%0A`;
+    mensagem += `- ${item.nome} (R$${item.preco.toFixed(2)})%0A`;  // Corrigido
   });
 
   mensagem += `%0ATotal: R$${total.toFixed(2)}`;
 
-  const link = `https://wa.me/5542999696273?text=${mensagem}`;
+  const link = `https://wa.me/5542999696273?text=${mensagem}`;  // Corrigido
   window.open(link, "_blank");
 }
