@@ -58,28 +58,26 @@
           <button onclick="adicionar('Cenoura (kg)', 3)">Adicionar</button>
         </div>
       </div>
+<div class="carrinho">
+  <h2>Carrinho</h2>
+  <ul id="lista-carrinho"></ul>
+  <p><strong>Total: R$<span id="total">0.00</span></strong></p>
 
-      <div class="carrinho">
-        <h2>Carrinho</h2>
-        <ul id="lista-carrinho"></ul>
-        <p><strong>Total: R$<span id="total">0.00</span></strong></p>
+  <label for="forma-pagamento">Forma de pagamento:</label>
+  <select id="forma-pagamento" required>
+    <option value="">Selecione</option>
+    <option value="pix">PIX</option>
+    <option value="dinheiro">Dinheiro</option>
+    <option value="cartao">Cartão</option>
+  </select>
 
-        <div id="perguntas-pagamento" style="margin-top: 20px;">
-          <label for="forma-pagamento">Como você vai pagar?</label>
-          <select id="forma-pagamento" required>
-            <option value="" disabled selected>Selecione a forma de pagamento</option>
-            <option value="pix">Pix</option>
-            <option value="dinheiro">Dinheiro</option>
-            <option value="cartao">Cartão</option>
-          </select>
+  <div id="comprovante-container" style="display:none; margin-top: 10px;">
+    <label for="link-comprovante">Link do comprovante PIX:</label>
+    <input type="url" id="link-comprovante" placeholder="Cole o link do comprovante aqui" />
+  </div>
 
-          <div id="comprovante-container" style="display:none; margin-top: 10px;">
-            <label for="link-comprovante">Cole o link do comprovante Pix:</label>
-            <input type="url" id="link-comprovante" placeholder="https://..." />
-          </div>
-
-          <button onclick="finalizarCompra()" style="margin-top: 10px;">Finalizar compra</button>
-        </div>
+  <button onclick="finalizarCompra()">Finalizar compra</button>
+</div>
       </div>
     </div>
   </div>
