@@ -1,79 +1,113 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Feira Fácil</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <div class="tela-inicial" id="inicio">
-    <div class="overlay">
-      <h1>Feira Fácil</h1>
-      <button class="catalogo-btn" onclick="abrirCatalogo()">Acesse nosso catálogo</button>
-    </div>
-  </div>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  <div class="pagina-catalogo" id="catalogo" style="display:none;">
-    <div class="categoria">
-      <h2>Frutas</h2>
-      <div class="produto">
-        <img src="img/maca.jpg" alt="Maçã">
-        <div class="produto-info">
-          <p>Maçã - R$2,00</p>
-          <button onclick="adicionarAoCarrinho('Maçã', 2.00)">Adicionar</button>
-        </div>
-      </div>
-    </div>
-    <div class="categoria">
-      <h2>Verduras</h2>
-      <div class="produto">
-        <img src="img/alface.jpg" alt="Alface">
-        <div class="produto-info">
-          <p>Alface - R$1,50</p>
-          <button onclick="adicionarAoCarrinho('Alface', 1.50)">Adicionar</button>
-        </div>
-      </div>
-    </div>
-    <div class="categoria">
-      <h2>Produtos Artesanais</h2>
-      <div class="produto">
-        <img src="img/geleia.jpg" alt="Geleia">
-        <div class="produto-info">
-          <p>Geleia Caseira - R$10,00</p>
-          <button onclick="adicionarAoCarrinho('Geleia Caseira', 10.00)">Adicionar</button>
-        </div>
-      </div>
-      <div class="produto">
-        <img src="img/mel.jpg" alt="Mel">
-        <div class="produto-info">
-          <p>Mel Artesanal - R$15,00</p>
-          <button onclick="adicionarAoCarrinho('Mel Artesanal', 15.00)">Adicionar</button>
-        </div>
-      </div>
-      <div class="produto">
-        <img src="img/sabonete.jpg" alt="Sabonete">
-        <div class="produto-info">
-          <p>Sabonete Natural - R$7,00</p>
-          <button onclick="adicionarAoCarrinho('Sabonete Natural', 7.00)">Adicionar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+body, html {
+  font-family: sans-serif;
+  height: 100%;
+}
 
-  <div class="carrinho" id="carrinho">
-    <h2>Carrinho</h2>
-    <div id="itens-carrinho"></div>
-    <p>Total: R$ <span id="total">0.00</span></p>
-    <button class="finalizar-btn" onclick="finalizarCompra()">Finalizar Compra</button>
-    <div class="formas-pagamento" id="formas-pagamento">
-      <p>Escolha a forma de pagamento:</p>
-      <button onclick="enviarWhatsapp()">Pagar no WhatsApp</button>
-      <p>Ou por PIX:</p>
-      <img src="img/qrcode-pix.png" alt="QR Code Pix">
-    </div>
-  </div>
+.tela-inicial {
+  background: url('img/frutas-fundo.jpg') no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
 
-  <script src="script.js"></script>
-</body>
-</html>
+.overlay {
+  background-color: rgba(0, 128, 0, 0.7);
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+}
+
+.overlay h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.catalogo-btn {
+  background-color: white;
+  color: green;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.pagina-catalogo {
+  padding: 20px;
+}
+
+.categoria {
+  margin-bottom: 30px;
+}
+
+.produto {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.produto img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-right: 15px;
+}
+
+.produto-info {
+  flex: 1;
+}
+
+.carrinho {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: #f9f9f9;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.carrinho h2 {
+  margin-bottom: 10px;
+}
+
+.item-carrinho {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.finalizar-btn {
+  background-color: green;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  margin-top: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.formas-pagamento {
+  display: none;
+  margin-top: 10px;
+}
+
+.formas-pagamento img {
+  width: 100%;
+  margin-top: 10px;
+}
