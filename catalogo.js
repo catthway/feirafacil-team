@@ -1,3 +1,33 @@
+let carrinho = [];
+let total = 0;
+
+window.adicionar = function(nome, preco) {  // Corrigido: Definição global da função
+  carrinho.push({ nome, preco });
+  total += preco;
+  atualizarCarrinho();
+};
+
+function atualizarCarrinho() {
+  const lista = document.getElementById("lista-carrinho");
+  const totalEl = document.getElementById("total");
+  lista.innerHTML = "";
+
+  carrinho.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `${item.nome} - R$${item.preco.toFixed(2)} 
+      <button class="remove-btn" onclick="remover(${index})">❌</button>`;
+    lista.appendChild(li);
+  });
+
+  totalEl.textContent = total.toFixed(2);
+}
+
+window.remover = function(index) {
+  total -= carrinho[index].preco;
+  carrinho.splice(index, 1);
+  atualizarCarrinho();
+};
+
 document.addEventListener("DOMContentLoaded", () => {
   const select = document.getElementById("forma-pagamento");
   const comprovanteContainer = document.getElementById("comprovante-container");
