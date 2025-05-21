@@ -8,7 +8,7 @@ body, html {
 
 /* Fundo desfocado */
 .fundo {
-  background-image: url('imagens/fundo.jpg'); /* Confirme que a imagem está na pasta correta */
+  background-image: url('imag/fundo.jpg'); /* Confirme que a imagem está na pasta correta */
   background-size: cover;
   background-position: center;
   filter: blur(8px);
