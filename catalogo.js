@@ -28,20 +28,55 @@ window.remover = function(index) {
   atualizarCarrinho();
 };
 
-function finalizarCompra() {
+window.finalizarCompra = function() {
   if (carrinho.length === 0) {
     alert("Carrinho vazio!");
     return;
   }
 
-  let mensagem = "Olá! Gostaria de fazer um pedido:%0A";
-  
+  const formaPagamento = document.getElementById("forma-pagamento").value;
+  const comprovante = document.getElementById("link-comprovante").value.trim();
+
+  if (!formaPagamento) {
+    alert("Por favor, selecione a forma de pagamento.");
+    return;
+  }
+
+  let mensagem = "Olá Dona Lourdes! Gostaria de fazer um pedido:%0A";
+
   carrinho.forEach(item => {
-    mensagem += `- ${item.nome} (R$${item.preco.toFixed(2)})%0A`;
+    mensagem += - ${item.nome} (R$${item.preco.toFixed(2)})%0A;
   });
 
-  mensagem += `%0ATotal: R$${total.toFixed(2)}`;
+  mensagem += %0ATotal: R$${total.toFixed(2)}%0A;
+  mensagem += Forma de pagamento: ${formaPagamento.toUpperCase()}%0A;
 
-  const link = `https://wa.me/5542999696273?text=${mensagem}`;
+  if (formaPagamento === "pix") {
+    if (!comprovante) {
+      alert("Por favor, cole o link do comprovante Pix.");
+      return;
+    }
+    mensagem += Comprovante Pix: ${comprovante}%0A;
+    mensagem += Pagamento já realizado. Obrigada!%0A;
+  } else {
+    mensagem += Pagamento será efetuado na entrega ou retirada.%0A;
+  }
+
+  const link = https://wa.me/5542999696273?text=${mensagem};
   window.open(link, "_blank");
-}
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const select = document.getElementById("forma-pagamento");
+  const comprovanteContainer = document.getElementById("comprovante-container");
+
+  select.addEventListener("change", () => {
+    if (select.value === "pix") {
+      comprovanteContainer.style.display = "block";
+      document.getElementById("link-comprovante").required = true;
+    } else {
+      comprovanteContainer.style.display = "none";
+      document.getElementById("link-comprovante").required = false;
+    }
+  });
+});
