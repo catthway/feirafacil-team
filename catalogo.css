@@ -94,6 +94,21 @@ body, html {
   background-color: #1b5e20;
 }
 
+/* Botão de remover item do carrinho */
+.remove-btn {
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.remove-btn:hover {
+  background-color: #b71c1c;
+}
+
 /* Botão de voltar */
 .voltar {
   position: fixed;
