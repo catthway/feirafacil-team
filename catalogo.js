@@ -1,128 +1,47 @@
-/* Reset básico */
-body, html {
-  margin: 0;
-  padding: 0;
-  height: 100%;
-  font-family: sans-serif;
+let carrinho = [];
+let total = 0;
+
+window.adicionar = function(nome, preco) {
+  carrinho.push({ nome, preco });
+  total += preco;
+  atualizarCarrinho();
+};
+
+function atualizarCarrinho() {
+  const lista = document.getElementById("lista-carrinho");
+  const totalEl = document.getElementById("total");
+  lista.innerHTML = "";
+
+  carrinho.forEach((item, index) => {
+    const li = document.createElement("li");
+    li.innerHTML = `${item.nome} - R$${item.preco.toFixed(2)} 
+      <button class="remove-btn" onclick="remover(${index})">❌</button>`;
+    lista.appendChild(li);
+  });
+
+  totalEl.textContent = total.toFixed(2);
 }
 
-/* Fundo desfocado */
-.fundo {
-  background-image: url('imagens/fundo.jpg'); /* Confirme que a imagem está na pasta correta */
-  background-size: cover;
-  background-position: center;
-  filter: blur(8px);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 0;
-}
+window.remover = function(index) {
+  total -= carrinho[index].preco;
+  carrinho.splice(index, 1);
+  atualizarCarrinho();
+};
 
-/* Container central */
-.conteudo-central {
-  position: relative;
-  z-index: 2;
-  padding: 30px;
-  background-color: rgba(255, 255, 255, 0.95);
-  margin: 50px auto;
-  width: 90%;
-  max-width: 1200px;
-  border-radius: 15px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-}
+function finalizarCompra() {
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio!");
+    return;
+  }
 
-/* Título */
-.titulo {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #2e7d32;
-}
+  let mensagem = "Olá! Gostaria de fazer um pedido:%0A";
+  
+  carrinho.forEach(item => {
+    mensagem += `- ${item.nome} (R$${item.preco.toFixed(2)})%0A`;
+  });
 
-/* Layout do catálogo */
-.catalogo-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
+  mensagem += `%0ATotal: R$${total.toFixed(2)}`;
 
-/* Seção de produtos */
-.produtos {
-  flex: 2;
-  padding-right: 20px;
-}
-
-/* Seção do carrinho */
-.carrinho {
-  flex: 1;
-  background-color: #f0f0f0;
-  padding: 15px;
-  border-radius: 10px;
-}
-
-/* Estilo dos itens */
-.item {
-  background-color: white;
-  border: 1px solid #ccc;
-  margin-bottom: 15px;
-  padding: 10px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-/* Imagens dos produtos */
-.item img {
-  width: 80px;
-  height: 80px;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Botão de adicionar ao carrinho */
-.item button {
-  background-color: #2e7d32;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.item button:hover {
-  background-color: #1b5e20;
-}
-
-/* Botão de remover item do carrinho */
-.remove-btn {
-  background-color: #d32f2f;
-  color: white;
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 10px;
-}
-
-.remove-btn:hover {
-  background-color: #b71c1c;
-}
-
-/* Botão de voltar */
-.voltar {
-  position: fixed;
-  top: 15px;
-  left: 15px;
-  z-index: 3;
-  background-color: #2e7d32;
-  color: white;
-  padding: 10px 15px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.voltar:hover {
-  background-color: #1b5e20;
+  const link = `https://wa.me/5542999696273?text=${mensagem}`;
+  window.open(link, "_blank");
 }
