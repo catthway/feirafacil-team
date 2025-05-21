@@ -1,145 +1,41 @@
-/* Estilo geral da página e tela inicial */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-image: url('fundo.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.center-box {
-  background: rgba(255, 255, 255, 0.8);
-  border-radius: 15px;
-  padding: 30px;
+.titulo {
   text-align: center;
-  box-shadow: 0 0 10px #ccc;
-  width: 300px;
-  max-width: 90vw;
-}
-
-.center-box h1 {
-  color: #2e7d32; /* verde da logo */
-  margin-bottom: 10px;
-}
-
-.center-box p {
-  margin-top: 0;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.center-box button {
-  background-color: #2e7d32;
-  border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.center-box button:hover {
-  background-color: #27672a;
-}
-
-/* --- Estilos específicos do catálogo --- */
-.catalogo-box {
-  width: 90vw;
-  max-width: 900px;
-  max-height: 90vh;
-  overflow-y: auto;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 15px;
-  padding: 30px;
-  text-align: left;
-  box-shadow: 0 0 15px #ccc;
-  display: block;
-}
-
-.catalogo-box h1 {
-  text-align: center;
+  margin-top: 20px;
   color: #2e7d32;
-  margin-bottom: 20px;
 }
 
-.catalogo-box .categoria {
-  margin-bottom: 40px;
-}
-
-.catalogo-box .categoria h2 {
-  color: #2e7d32;
-  margin-bottom: 15px;
-}
-
-.catalogo-box .produtos {
+.catalogo-container {
   display: flex;
+  justify-content: space-between;
+  padding: 20px;
   flex-wrap: wrap;
-  gap: 20px;
 }
 
-.catalogo-box .produto {
-  background: #f4f9f4;
-  border: 1px solid #ddd;
+.produtos {
+  width: 60%;
+}
+
+.carrinho {
+  width: 35%;
+  background-color: #f1f1f1;
+  padding: 20px;
   border-radius: 10px;
-  padding: 15px;
-  width: 160px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
-.catalogo-box .produto img {
-  width: 100%;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 8px;
+.item {
+  background: white;
+  padding: 10px;
   margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
 
-.catalogo-box .produto p {
-  margin: 5px 0;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-}
-
-.catalogo-box .produto button {
-  margin-top: auto;
+.item button {
+  margin-top: 5px;
   background-color: #2e7d32;
   color: white;
   border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
+  padding: 6px 12px;
+  border-radius: 5px;
   cursor: pointer;
-  font-size: 14px;
-  width: 100%;
-}
-
-.catalogo-box .produto button:hover {
-  background-color: #27672a;
-}
-
-/* Carrinho fixo no canto inferior direito */
-.catalogo-box .carrinho {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  background: #2e7d32;
-  color: white;
-  padding: 15px 20px;
-  border-radius: 12px;
-  box-shadow: 0 0 10px #1a4d1a;
-  cursor: pointer;
-  z-index: 1000;
-}
-
-.catalogo-box .carrinho span {
-  font-weight: bold;
-  margin-left: 8px;
 }
