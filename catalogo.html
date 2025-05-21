@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Catálogo - Feira Fácil</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1 class="titulo">Catálogo de Produtos</h1>
+
+  <div class="catalogo-container">
+
+    <div class="produtos">
+      <h2>Produtos Artesanais</h2>
+      <div class="item">
+        <p>Geleia Caseira - R$10</p>
+        <button onclick="adicionar('Geleia Caseira', 10)">Adicionar</button>
+      </div>
+      <div class="item">
+        <p>Mel Puro - R$25</p>
+        <button onclick="adicionar('Mel Puro', 25)">Adicionar</button>
+      </div>
+      <div class="item">
+        <p>Sabonete Natural - R$7</p>
+        <button onclick="adicionar('Sabonete Natural', 7)">Adicionar</button>
+      </div>
+
+      <h2>Hortifruti</h2>
+      <div class="item">
+        <p>Banana Prata (kg) - R$6,39</p>
+        <button onclick="adicionar('Banana Prata (kg)', 6.39)">Adicionar</button>
+      </div>
+      <div class="item">
+        <p>Maçã Fuji (kg) - R$8,50</p>
+        <button onclick="adicionar('Maçã Fuji (kg)', 8.5)">Adicionar</button>
+      </div>
+
+      <h2>Hortaliças</h2>
+      <div class="item">
+        <p>Alface Crespa - R$4,99</p>
+        <button onclick="adicionar('Alface Crespa', 4.99)">Adicionar</button>
+      </div>
+      <div class="item">
+        <p>Cenoura Vermelha (kg) - R$3,00</p>
+        <button onclick="adicionar('Cenoura Vermelha (kg)', 3)">Adicionar</button>
+      </div>
+    </div>
+
+    <div class="carrinho">
+      <h2>Carrinho</h2>
+      <ul id="lista-carrinho"></ul>
+      <p><strong>Total: R$<span id="total">0.00</span></strong></p>
+      <button onclick="finalizarCompra()">Finalizar compra</button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
