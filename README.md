@@ -14,7 +14,7 @@ Ele pode adicionar produtos ao carrinho e visualizar o total da compra.
 
 Ao finalizar, o sistema gera um pedido automático que é enviado diretamente pelo WhatsApp.
 
-O cliente pode escolher pagar por WhatsApp ou via PIX (com QR Code).
+O cliente pode escolher pagar em dinheiro e cartão na hora da entrega ou retirada do produto ou via chave PIX disponibilizada no site.
 
 
 ## Tecnologias utilizadas
